@@ -1,6 +1,231 @@
 @import "base/variables";
 @import "libs/reset";
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;800&display=swap");
 
 /* @import url("https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/12.0.1/sanitize.min.css"); */
-/* @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"); */
-/* @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"); */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css");
+@import "global";
+
+.header {
+    position: relative;
+    height: 100vh;
+
+    &__slider-item {
+        position: relative;
+        height: 100vh;
+        background-image: url("../images/header-bg.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    &__aside {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 5;
+
+        /* display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between; */
+        border-right: 1px solid rgba($white-color, 0.25);
+        height: 100vh;
+        text-align: center;
+        color: $white-text;
+    }
+
+    &__title {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 4;
+        max-width: 467px;
+        font-size: 200px;
+        line-height: 80%;
+        text-transform: uppercase;
+        color: rgba($white-text, 0.07);
+
+        @extend %fs-extra-bold;
+    }
+
+    &__date {
+        margin-bottom: 30px;
+        font-size: 72px;
+        line-height: 64px;
+
+        @extend %fs-extra-bold;
+    }
+
+    &__date span {
+        display: block;
+        padding-top: 15px;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 1.4px;
+
+        @extend %fs-light;
+    }
+
+    &__location {
+        position: relative;
+        display: inline-block;
+        padding-left: 19px;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 1.05px;
+    }
+
+    &__search {
+        padding: 15px 0 35px;
+    }
+
+    &__location::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 11px;
+        height: 14px;
+        background-image: url("../images/menu/location.svg");
+        background-position: 0 0;
+        background-repeat: no-repeat;
+    }
+
+    &__map {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 3;
+    }
+
+    &__arrows {
+        position: absolute;
+        left: 210px;
+        bottom: 30px;
+        z-index: 3;
+    }
+}
+
+.menu {
+    padding-top: 40px;
+
+    &__list {
+        @extend %fs-medium;
+    }
+
+    a span {
+        display: block;
+        margin-bottom: 20px;
+        padding-top: 6px;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 3px;
+    }
+}
+
+.slider {
+    &-item__info {
+        position: absolute;
+        right: 80px;
+        bottom: 116px;
+        text-align: right;
+        text-transform: uppercase;
+    }
+
+    &-item__info-suptitle {
+        margin-bottom: 7px;
+    }
+
+    &-item__info-title {
+        margin-bottom: 40px;
+        font-size: 80px;
+        line-height: 120%;
+
+        @extend %fs-extra-bold;
+    }
+
+    &-item__info-suptext {
+        margin-bottom: 13px;
+    }
+
+    &-item__info-text {
+        margin-bottom: 20px;
+        font-size: 40px;
+        line-height: 120%;
+
+        @extend %fs-extra-bold;
+    }
+
+    &-arrows {
+        position: absolute;
+        right: 80px;
+        top: 40px;
+        z-index: 4;
+        cursor: pointer;
+    }
+
+    &-arrows__left {
+        right: 125px;
+    }
+
+    &-dots {
+        position: absolute;
+        right: 50px;
+        bottom: 36px;
+        width: 100%;
+        max-width: 920px;
+        color: $white-text;
+    }
+
+    &-dots .slick-current .dots-box {
+        border-top: 4px solid $bir-color;
+    }
+}
+
+.dots-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 4px solid $white-color;
+    padding-top: 5px;
+    width: 200px;
+    height: 28px;
+
+    &__number {
+        font-size: 24px;
+        line-height: 120%;
+        text-transform: uppercase;
+
+        @extend %fs-extra-bold;
+    }
+
+    &__name {
+        font-size: 16px;
+        line-height: 120%;
+
+        @extend %fs-light;
+    }
+}
+
+.slick-track {
+    transform: translate3d(0, 0, 0) !important;
+}
+
+.line-animation {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: animdash 2s infinite 6s;
+}
+
+@keyframes animdash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.surf {
+    padding: 160px 0 210px;
+}
